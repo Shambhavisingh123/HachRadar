@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon</title>
+    <link rel="stylesheet" href="./main.css">
+    <style>
+        .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30rem;
+        overflow: hidden;
+        height: 10rem;
+        background-size: 300% 300%;
+        backdrop-filter: blur(1rem);
+        border-radius: 5rem;
+        transition: 0.5s;
+        animation: gradient_301 5s ease infinite;
+        border: double 4px transparent;
+        background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        }
+
+        #container-stars {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        transition: 0.5s;
+        backdrop-filter: blur(1rem);
+        border-radius: 5rem;
+        }
+
+        strong {
+        z-index: 2;
+        font-family: 'Avalors Personal Use';
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: #FFFFFF;
+        text-shadow: 0 0 4px white;
+        }
+
+        #glow {
+        position: absolute;
+        display: flex;
+        width: 12rem;
+        }
+
+        .circle {
+        width: 100%;
+        height: 30px;
+        filter: blur(2rem);
+        animation: pulse_3011 4s infinite;
+        z-index: -1;
+        }
+
+        .circle:nth-of-type(1) {
+        background: rgba(254, 83, 186, 0.636);
+        }
+
+        .circle:nth-of-type(2) {
+        background: rgba(142, 81, 234, 0.704);
+        }
+
+        .btn:hover #container-stars {
+        z-index: 1;
+        background-color: #212121;
+        }
+
+        .btn:hover {
+        transform: scale(1.1)
+        }
+
+        .btn:active {
+        border: double 4px #FE53BB;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        animation: none;
+        }
+
+        .btn:active .circle {
+        background: #FE53BB;
+        }
+
+        #stars {
+        position: relative;
+        background: transparent;
+        width: 200rem;
+        height: 200rem;
+        }
+
+        #stars::after {
+        content: "";
+        position: absolute;
+        top: -10rem;
+        left: -100rem;
+        width: 100%;
+        height: 100%;
+        animation: animStarRotate 90s linear infinite;
+        }
+
+        #stars::after {
+        background-image: radial-gradient(#ffffff 1px, transparent 1%);
+        background-size: 50px 50px;
+        }
+
+        #stars::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 170%;
+        height: 500%;
+        animation: animStar 60s linear infinite;
+        }
+
+        #stars::before {
+        background-image: radial-gradient(#ffffff 1px, transparent 1%);
+        background-size: 50px 50px;
+        opacity: 0.5;
+        }
+
+        @keyframes animStar {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(-135rem);
+        }
+        }
+
+        @keyframes animStarRotate {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0);
+        }
+        }
+
+        @keyframes gradient_301 {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+        }
+
+        @keyframes pulse_3011 {
+        0% {
+            transform: scale(0.75);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        100% {
+            transform: scale(0.75);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        }
+
+       .link{
+        text-align: center;
+       }
+
+       .moveImage{
+            animation:10s infinite linear moveCompany;
+        }
+        @keyframes moveCompany{
+            0%{
+                top:0;
+            }
+            100%{
+                top:-50%;
+            }
+        }
+      
+    </style>
+</head>
+<body>
+    <nav class= "bg-black opacity-70 sticky top-0 z-[200]">
+        <div class="relative w-[1080px] mx-auto flex items-center justify-between">
+            <ul class="flex space-x-8">
+                <li class="text-white hover:text-blue-400 transition-all duration:200 py-10 font-mullish text-l cursor-pointer
+                relative group">
+                    <a href="#home">Home</a>
+                
+                    <div class="bg-yellow-600 w-full h-1 hidden group-hover:block transition-all duration:200 absolute
+                    bottom-5"></div>
+                </li>
+
+                <li class="text-white hover:text-blue-400 transition-all duration:200 py-10 font-mullish text-l cursor-pointer
+                relative group">
+                    <a href="#ongoing">Ongoing Hackathons</a>
+                
+                    <div class="bg-yellow-600 w-full h-1 hidden group-hover:block transition-all duration:200 absolute
+                    bottom-5"></div>
+                </li>
+                <li class="text-white hover:text-blue-400 transition-all duration:200 py-10 font-mullish text-l cursor-pointer
+                relative group">
+                    <a href="#upcoming">Upcoming Hackathons</a>
+                
+                    <div class="bg-yellow-600 w-full h-1 hidden group-hover:block transition-all duration:200 absolute
+                    bottom-5"></div>
+                </li>
+                <li class="text-white hover:text-blue-400 transition-all duration:200 py-10 font-mullish text-l cursor-pointer
+                relative group">
+                    <a href="#aboutus">About Us</a>
+                
+                    <div class="bg-yellow-600 w-full h-1 hidden group-hover:block transition-all duration:200 absolute
+                    bottom-5"></div>
+                </li>
+                <li class="text-white hover:text-blue-400 transition-all duration:200 py-10 font-mullish text-l cursor-pointer
+                relative group">
+                    <a href="#contactus">Contact Us</a>
+                
+                    <div class="bg-yellow-600 w-full h-1 hidden group-hover:block transition-all duration:200 absolute
+                    bottom-5"></div>
+                </li>
+                <li>
+                    <img src="" alt="">
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
+    <!-- intro section -->
+    <section class="bg-[url(./image/Dark.png)] bg-no-repeat bg-cover pt-[10rem] pb-[350px] h-[900px] " id="home">   
+    </section>
+
+    <!-- organizer and participants section -->
+    <section class="max-w-[1080px] mt-24 mx-auto flex flex-row justify-between">
+        <div>
+            <a href="organize.html" target="_blank" class="mx-auto">
+                <button class="btn" type="button">
+                    <strong class="text-2xl">ORGANIZE A HACKATHON</strong>
+                    <div id="container-stars">
+                      <div id="stars"></div>
+                    </div>
+                  
+                    <div id="glow">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </button>
+            </a>
+        </div>
+        <div>
+            <a href="https://signupvisform.vercel.app/" class="mx-auto">
+                <button class="btn" type="button">
+                    <strong class="text-2xl">PARTICIPANTS SIGN UP</strong>
+                    <div id="container-stars">
+                      <div id="stars"></div>
+                    </div>
+                  
+                    <div id="glow">
+                      <div class="circle"></div>
+                      <div class="circle"></div>
+                    </div>
+                  </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- hackathons section -->
+    <section class="bg-white" id="ongoing">
+        <div class="relative mx-auto w-10/12 px-7 max-w-[1080px] pt-40">
+            <!-- <img src="./image/feature-section1-dottedrows.png" class="absolute w-[230px] left-[450px] top-[2rem]
+            z-[10]"/> -->
+            <img src="./image/feature-section1-dottedrows.png" class="absolute w-[233px] -right-[3.5rem] top-[10rem]
+            z-[10]"/>
+            <h1 class="text-7xl text-deepBlueHead mx-auto">ONGOING HACKATHONS</h1>
+            <div class="w-36 h-1 bg-greenLight ml-64"></div>
+            <div class="w-full grid grid-rows-2 grid-cols-3 gap-x-5 gap-y-10 mt-10">
+                <!-- item 1 -->
+                <div class="relative flex items-center z-0">
+                    <h2 class="text-deepBlueHead font-mullish font-extrabold text-4xl leading-[3.75rem]"> 
+                        Jump into a <br><span class="text-blue-950 font-bold">Challenge</span><br> right now!!
+                    </h2>
+                </div>
+                <!-- card 1 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100]
+                 cursor-pointer hover:scale-105 bg-black transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)]">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">CollaboraCode</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:GURUGRAM</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <a href="https://hackradar.vercel.app/">
+                                <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- card 2 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                cursor-pointer hover:scale-105  transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                   <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                   <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                       <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                       </h4>
+                       <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                       <div class="flex flex-col mx-auto text-center">
+                           <div>Date:15 April 2024</div>
+                           <div>Time:10AM to 6PM</div>
+                           <div>Venue:DELHI</div>
+                       </div> 
+                           <!-- button -->
+                       <div class="mx-auto">
+                           <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                               mt-5" type="submit">Register Here
+                           </button>
+                       </div>
+                   </div>
+               </div>
+               <!-- card 3 -->
+               <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                 cursor-pointer hover:scale-105 transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                 cursor-pointer hover:scale-105 transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 5 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100]
+                 cursor-pointer hover:scale-105 bg-black transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)]">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+               
+                
+        </div>
+        <!-- hyperlink -->
+        <div class=" mt-10 mx-auto max-w-[1080px] link">
+            <a href="#" class="underline text-gray-600 text-bold mx-auto text-center">View All</a>
+        </div>
+    </section>
+    <!-- winners section -->
+    <section class="mt-20 bg-grayText">
+        <div class="container mx-auto py-10 max-w-[1100px] ">
+            <h1 class="text-3xl text-deepBlue font-bold mb-6 mx-auto text-center">Previous Hackathon Winners</h2>
+            <div class="bg-greenLight w-6 h-1 mx-auto"></div>
+            
+            <div class="grid grid-cols-3 grid-row-2 gap-4 mt-10">
+                <!-- Winner 1 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                   <div>
+                    <h3 class="text-2xl font-bold mb-2">First Place</h3>
+                    <p class="text-gray-700">Group-Name:Heros</p>
+                    <p class="text-gray-500">Project: AwesomeApp</p>
+                   </div>
+                   <!-- image -->
+                   <div>
+                    <img src="./image/girl.png" alt="">
+                   </div>
+                </div>
+                
+                <!-- Winner 2 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                    <div>
+                     <h3 class="text-2xl font-bold mb-2">Second Place</h3>
+                     <p class="text-gray-700">Group-Name:Heros</p>
+                     <p class="text-gray-500">Project: AwesomeApp</p>
+                    </div>
+                    <!-- image -->
+                    <div>
+                     <img src="./image/boy.png" alt="">
+                    </div>
+                 </div>
+                
+                <!-- Winner 3 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                    <div>
+                     <h3 class="text-2xl font-bold mb-2">Third Place</h3>
+                     <p class="text-gray-700">Group-Name:Heros</p>
+                     <p class="text-gray-500">Project: AwesomeApp</p>
+                    </div>
+                    <!-- image -->
+                    <div>
+                     <img src="./image/girl2.png" alt="">
+                    </div>
+                 </div>
+                <!-- Winner 1 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                    <div>
+                     <h3 class="text-2xl font-bold mb-2">First Place</h3>
+                     <p class="text-gray-700">Group-Name:Heros</p>
+                     <p class="text-gray-500">Project: AwesomeApp</p>
+                    </div>
+                    <!-- image -->
+                    <div>
+                     <img src="./image/girl.png" alt="">
+                    </div>
+                 </div>
+                
+                <!-- Winner 2 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                    <div>
+                     <h3 class="text-2xl font-bold mb-2">Second Place</h3>
+                     <p class="text-gray-700">Group-Name:Heros</p>
+                     <p class="text-gray-500">Project: AwesomeApp</p>
+                    </div>
+                    <!-- image -->
+                    <div>
+                     <img src="./image/boy.png" alt="">
+                    </div>
+                 </div>
+                
+                <!-- Winner 3 -->
+                <div class="bg-white rounded shadow-md p-4 flex flex-row justify-between">
+                    <div>
+                     <h3 class="text-2xl font-bold mb-2">Third Place</h3>
+                     <p class="text-gray-700">Group-Name:Heros</p>
+                     <p class="text-gray-500">Project: AwesomeApp</p>
+                    </div>
+                    <!-- image -->
+                    <div>
+                     <img src="./image/girl2.png" alt="">
+                    </div>
+                 </div>
+            </div>
+        </div>
+        
+    </section>
+
+     <!--Upcoming hackathons section -->
+     <section class="bg-white" id="upcoming">
+        <div class="relative mx-auto w-10/12 px-7 max-w-[1080px] pt-40">
+            <!-- <img src="./image/feature-section1-dottedrows.png" class="absolute w-[230px] left-[450px] top-[2rem]
+            z-[10]"/> -->
+            <img src="./image/feature-section1-dottedrows.png" class="absolute w-[233px] -right-[3.5rem] top-[10rem]
+            z-[10]"/>
+            <h1 class="text-7xl text-deepBlueHead mx-auto">UPCOMING HACKATHONS</h1>
+            <div class="w-36 h-1 bg-greenLight ml-64"></div>
+
+            <div class="w-full grid grid-rows-2 grid-cols-3 gap-x-5 gap-y-10 mt-10">
+                <!-- item 1 -->
+                <div class="relative flex items-center z-0">
+                    <h2 class="text-deepBlueHead font-mullish font-extrabold text-4xl leading-[3.75rem]"> 
+                        Pre Register into <br><span class="text-blue-950 font-bold">Challenges</span><br> right now!!
+                    </h2>
+                </div>
+                <!-- card 1 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100]
+                 cursor-pointer hover:scale-105 bg-white transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- card 2 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                cursor-pointer hover:scale-105 bg-white transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                   <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                   <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                       <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                       </h4>
+                       <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                       <div class="flex flex-col mx-auto text-center">
+                           <div>Date:15 April 2024</div>
+                           <div>Time:10AM to 6PM</div>
+                           <div>Venue:DELHI</div>
+                       </div> 
+                           <!-- button -->
+                       <div class="mx-auto">
+                           <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                               mt-5" type="submit">Register Here
+                           </button>
+                       </div>
+                   </div>
+               </div>
+               <!-- card 3 -->
+               <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                 cursor-pointer hover:scale-105 bg-white transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 4 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100] 
+                 cursor-pointer hover:scale-105 bg-white transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- card 5 -->
+                <div class="bg-[url(/image/instant-settlement-bg.svg)] bg-no-repeat w-full max-h-[738px] z-[100]
+                 cursor-pointer hover:scale-105 bg-white transition-all duration-200 hover:bg-[url(/image/instant-settlement-bghover.svg)] bg-black">
+                    <img src="./image/razorpayXicon.svg" w-10 h-10/>
+                    <div class="font-mullish py-3 text-grayText leading-normal flex flex-col">
+                        <h4 class="text-gray-500 mx-auto text-center font-bold opacity-80"> HACKATHON
+                        </h4>
+                        <h3 class="mx-auto text-center font-bold">She Codes</h3>
+                        <div class="flex flex-col mx-auto text-center">
+                            <div>Date:15 April 2024</div>
+                            <div>Time:10AM to 6PM</div>
+                            <div>Venue:DELHI</div>
+                        </div> 
+                            <!-- button -->
+                        <div class="mx-auto">
+                            <button class="bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white h-[50px] w-[120px]
+                                mt-5" type="submit">Register Here
+                            </button>
+                        </div>
+                    </div>
+                </div>    
+        </div>
+        <!-- hyperlink -->
+        <div class=" mt-10 mx-auto max-w-[1080px] link">
+            <a href="#" class="underline text-gray-600 text-bold mx-auto text-center">View All</a>
+        </div>
+    </section>
+
+    <!-- sponsors -->
+    <section class="w-full bg-[#f5f8fe] relative pt-40 pb-12 mt-[50px] z-[-100]">
+        <div class="flex flex-row space-x-10 justify-between w-11/12 max-w-[1080px] mx-auto relative">
+            <!-- left part -->
+            <div class="flex flex-col justify-center max-w-[calc(100%-500px)]">
+                <h2 class="font-mullish text-4xl text-deepBlueHead font-bold">OUR SPONSORS</h2>
+                <div class="w-6 h-1 bg-greenLight my-4 mb-10"></div>
+                <p class="font-mullish opacity-80">On behalf of the entire HackRadar team, I want to express our 
+                    heartfelt gratitude for your ongoing support and commitment to our platform. Your generous sponsorship 
+                    has played a vital role in empowering our
+                     community of innovators, developers, and tech enthusiasts to collaborate, 
+                     create, and drive positive change in the world.</p>
+                <p class="font-mullish mt-6 opacity-80">Focus on your business while we handle the complexities of payments for you.</p>
+            </div>
+            <!-- right img part -->
+            <div class="h-[500px] w-[500px] relative overflow-y-hidden">
+                <div style="background:linear-gradient(180deg, #f4f8ff ,#fff0)"
+                class="absolute w-full h-[150px] top-0 z-50">
+                </div>
+                <img src="./image/sponsors.jpg" alt="" width="500px" class="moveImage absolute h-auto object-cover">
+                <div style="background:linear-gradient(0deg, #f4f8ff ,#fff0)"
+                class="absolute w-full h-[150px] bottom-0 z-50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer part -->
+    <section>
+        <footer class="bg-black py-16">
+            <div class="container mx-auto text-white">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <!-- Footer Column 1 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">About Us</h4>
+                        <p class="text-sm">Welcome to our thriving coding community! Here, challenges aren't just hurdles; they're opportunities to sharpen your skills and unleash your creativity.</p>
+                    </p></p>
+                    </div>
+                    <!-- Footer Column 2 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Contact</h4>
+                        <p class="text-sm">Email: info@example.com</p>
+                        <p class="text-sm">Phone: +123456789</p>
+                    </div>
+                    <!-- Footer Column 3 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Links</h4>
+                        <ul class="text-sm">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- Footer Column 4 -->
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+                        <div class="flex flex-col space-y-4">
+                            <a href="#" class="text-lg">Facebook<i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-lg">Twitter<i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-lg">Instagram<i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-lg">Linkedin<i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+</body>
+</html>
