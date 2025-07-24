@@ -2,7 +2,7 @@
 
 # My Frontend App
 
-This is a frontend project running on Vite, served at `http://localhost:5173/`.
+This is a frontend project running on Vite.
 
 ## 🚀 Features
 
