@@ -2,7 +2,7 @@
 
 # My Frontend App
 
-This is a frontend project running on Vite.
+This is a frontend project running on Vite. A website collecting information on the oncoming and ongoing hackathons.
 
 ## 🚀 Features
 
